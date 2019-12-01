@@ -164,7 +164,7 @@ class Float(list):
 
     def __repr__(f):
         return (
-            f"{{'value': {f.value},\n"
+            f"{{'value': float('{f.value}'),\n"
             f" 'kind': '{f.kind}', 'k': {f.k}, 'p': {f.p}, "
             f"'bias': {f.bias},\n"
             f" 'bits': '{f.str_bits}',\n"
