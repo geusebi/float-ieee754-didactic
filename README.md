@@ -40,10 +40,12 @@ print(repr(f_1234))
 ## Implemented types and formula
 
 The formula implemented for a normal number is:
+
 ![General formula for floats](doc/img/eq_float_value.png "General formula for floats")
 
 The specification defines various types of binary floats.
 This module implements all of them plus something non-standard.
+
 ![IEEE 754 bits layouts](doc/img/tb_pk_bits.png "IEEE 754 bits layouts")
 
 They're available as classes with matching names:
