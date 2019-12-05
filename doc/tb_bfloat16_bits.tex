@@ -1,0 +1,24 @@
+\vspace*{.5em}%
+\newcounter{x}%
+\begin{bytefield}[%
+bitwidth=\widthof{0000},%
+bitheight=\widthof{00000},%
+bitformatting=\small,%
+endianness=big]{16}
+    \bitheader{0-15} \\
+    \bitbox{1}{S} & 
+    \bitbox{8}{Exponent} &
+    \bitbox{7}{Fraction} \\
+    \bitbox{1}{$+-$} & 
+    \forloop[-1]{x}{7}{\value{x}>-8}{%
+        \bitbox{1}{$2^{\arabic{x}}$}%
+    } \\
+    \bitboxes{1}{
+        {} {$128$} {$64$} {$32$} {$16$} {$8$} {$4$} {$2$} {$1$}
+    } &
+    \bitboxes{1}{
+        {$\frac{1}{2}$} {$\frac{1}{4}$} {$\frac{1}{8}$}
+        {$\frac{1}{16}$} {$\frac{1}{32}$} {$\frac{1}{64}$}
+        {$\frac{1}{128}$}
+    }
+\end{bytefield}

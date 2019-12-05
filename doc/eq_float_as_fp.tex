@@ -1,0 +1,10 @@
+\begin{equation*}
+\begin{aligned}
+    sign &= bit_{31} \\
+    S &= (-1)^{sign} \\
+    number &= \sum_{n=1}^{p+k}{bit_{n-1} \cdot 2^{n-p}} \\
+    E &= \floor{number} \\
+    F &= number \bmod 1 \\
+    value &= S \cdot 2^{E-bias} \cdot (1 + F) \\
+\end{aligned}
+\end{equation*}

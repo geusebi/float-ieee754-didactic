@@ -1,0 +1,11 @@
+Dependencies:
+    pdflatex -- texlive?
+    bytefields -- latex package
+    convert -- imagemagick
+
+To build everything run:
+    make
+
+To clean from latex aux and logs:
+    make clean-builds
+

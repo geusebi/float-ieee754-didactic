@@ -1,0 +1,38 @@
+%\def\texfile{float input file}
+
+\ifdefined\width\else
+    \def\width{8cm}
+\fi
+
+\ifdefined\height\else
+    \def\height{8cm}
+\fi
+
+\ifdefined\margin\else
+    \def\margin{0cm}
+\fi
+
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[%
+    paperwidth=\width,%
+    paperheight=\height,%
+    margin=\margin%
+]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bytefield}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{newfloat}
+\usepackage{caption}
+\usepackage{forloop}
+
+\input{setup.tex}
+
+\begin{document}
+\centering
+\input{\texfile}
+\end{document}

@@ -1,0 +1,18 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bytefield}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{newfloat}
+\usepackage{caption}
+\usepackage{forloop}
+
+\DeclareFloatingEnvironment[
+    listname={List of equations},
+    name=Equation,
+    placement=tbhp,
+    within=section,
+]{eqfloat}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}

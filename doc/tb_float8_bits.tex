@@ -1,0 +1,21 @@
+\vspace*{.5em}
+\begin{bytefield}[%
+bitwidth=\widthof{0000},%
+bitheight=\widthof{00000},%
+bitformatting=\small,%
+endianness=big]{8}
+    \bitheader{0-7} \\
+    \bitbox{1}{S} &
+    \bitbox{4}{Exponent} &
+    \bitbox{3}{Fraction} \\
+    \bitboxes{1}{
+        {$+-$}
+        {$2^{3}$} {$2^{2}$} {$2^{1}$} {$2^{0}$}
+        {$2^{-1}$} {$2^{-2}$} {$2^{-3}$}
+    } \\
+    \bitboxes{1}{
+        {}
+        {$8$} {$4$} {$2$} {$1$}
+        {$\frac{1}{2}$} {$\frac{1}{4}$} {$\frac{1}{8}$}
+    }
+\end{bytefield}

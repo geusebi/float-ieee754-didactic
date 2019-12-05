@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{geometry}
+
+\input{setup.tex}
+
+\begin{document}
+
+\begin{table}[!ht]
+    \centering
+    \input{tb_pk_bits}
+    \captionsetup{width=9cm}
+    \caption{
+        IEEE 754 specification for bits allocation. \\
+        $p$: bits of fraction part (included implicit one), \\
+        $k$: bits of exponent part, \\
+        $bias$: exponent bias constant.
+    }
+\end{table}
+
+\begin{table}[!ht]
+    \centering
+    \include{tb_bfloat16_bits}
+    \caption{
+        {\tt bfloat16} bits subdivision, powers and actual factors.
+    }
+\end{table}
+
+\begin{table}[!ht]
+    \centering
+    \input{tb_float8_bits}
+    \caption{
+        Fictional {\tt Float8} bits subdivision, powers and actual
+        factors.
+    }
+\end{table}
+
+\noindent
+\begin{minipage}{0.45\textwidth}
+    \input{eq_float_value.tex}
+    \captionof{eqfloat}{General formula.}
+\end{minipage}
+\hfill\vline\hfill
+\begin{minipage}{0.45\textwidth}
+    \input{eq_float32_value.tex}
+    \captionof{eqfloat}{{\tt float32} formula.}
+\end{minipage}
+
+\begin{eqfloat}
+    \input{eq_full_float8}
+    \caption{
+        Expanded formula for an imaginary 8-bit float type
+        $(p=4,k=4)$.
+    }
+\end{eqfloat}
+
+\begin{eqfloat}
+    \input{eq_float_as_fp}
+\end{eqfloat}
+
+\end{document}

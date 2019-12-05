@@ -1,0 +1,10 @@
+\begin{equation*}
+\begin{aligned}
+    sign &= bit_{(p+k-1)} \\
+    S &= (-1)^{sign} \\
+    E &= \sum_{n=0}^{k-1}{bit_{(p-1+n)} \cdot 2^n} \\
+    F &= \sum_{n=1}^{p-1}{bit_{(p-1-n)} \cdot 2^{-n}} \\
+    value &= S \cdot 2^{E-bias} \cdot (1 + F) \\
+\end{aligned}
+\label{eq:float_value}
+\end{equation*}
