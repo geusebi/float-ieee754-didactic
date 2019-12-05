@@ -25,8 +25,7 @@ pdf/%-img.pdf: %-img.tex %.tex
 	pdflatex $(LATEXFLAGS) $<
 
 img/%.png: pdf/%-img.pdf
-	convert -density 900 -trim $< \
-		-resize 20% -quality 100 -flatten +profile "icc" $@
+	pdftoppm -png -singlefile $< $(patsubst %.png,%,$@)
 
 clean-builds:
 	rm -f pdf/*.aux

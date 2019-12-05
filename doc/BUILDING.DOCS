@@ -1,7 +1,7 @@
 Dependencies:
     pdflatex -- texlive?
     bytefields -- latex package
-    convert -- imagemagick
+    pdftoppm --
 
 To build everything run:
     make
