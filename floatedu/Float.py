@@ -179,6 +179,7 @@ class Float(list):
 
 
 # Create the various float types according to the IEEE 754
+class Float8(Float):   (k, p, bias) = 4,  4,   7
 class Float16(Float):  (k, p, bias) = 5,  11,  15
 class BFloat16(Float): (k, p, bias) = 8,  8,   127
 class Float32(Float):  (k, p, bias) = 8,  24,  127
