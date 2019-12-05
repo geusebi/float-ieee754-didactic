@@ -26,7 +26,7 @@ pdf/%-img.pdf: %-img.tex %.tex
 
 img/%.png: pdf/%-img.pdf
 	convert -density 900 -trim $< \
-		-quality 100 -flatten +profile "icc" $@
+		-resize 20% -quality 100 -flatten +profile "icc" $@
 
 clean-builds:
 	rm -f pdf/*.aux
