@@ -41,10 +41,8 @@ print(repr(f_1234))
 
 The formula implemented for a normal number is:
 
-[eq_float_value]: doc/img/eq_float_value.png
-[eq_float32_value]: doc/img/eq_float32_value.png
-
-![General formula for floats][eq_float_value]*General formula* ![Formula for float32][eq_float32_value]*float32 formula*
+![General formula for floats](doc/img/eq_float_value.png)*General formula*
+![Formula for float32](doc/img/eq_float32_value.png)*float32 formula*
 
 IEEE 754 defines various types of binary floats.
 This module implements all of them plus something non-standard.
