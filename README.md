@@ -60,7 +60,7 @@ print(f_num)
 # [0]
 # [1, 0, 0, 0, 1, 0, 0, 1]
 # [0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1]
-#-1234.4566650390625
+# -1234.4566650390625
 ```
 
 ## Implemented types and formula
@@ -70,7 +70,13 @@ This module implements all of them plus something non-standard.
 
 ![IEEE 754 bits layouts](doc/img/tb_pk_bits.png "IEEE 754 bits layouts")
 
-Every implemented type is available as a class:
+Where bits are laid out from left to right `sign - exponent - fraction`.
+
+For example the `BFloat16` is stored as:
+
+![BFloat16 bits layout](doc/img/tb_bfloat16_bits.png "BFloat16 bits layout")
+
+Every implemented float type is available as a class:
 ```python
 from floatedu import *
 [Float, Float8, Float16, BFloat16, Float64, Float32, Float128, Float256]
