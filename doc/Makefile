@@ -21,7 +21,7 @@ pdf/document.pdf: document.tex $(wildcard *.tex)
 		do pdflatex $(LATEXFLAGS) $<; \
 	done
 
-pdf/%-img.pdf: %-img.tex %.tex
+pdf/%-img.pdf: %-img.tex %.tex pdf_template.tex
 	pdflatex $(LATEXFLAGS) $<
 
 img/%.png: pdf/%-img.pdf
