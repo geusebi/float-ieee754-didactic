@@ -6,13 +6,13 @@ IEEE 754 representation internals.
 ## Use case
 
 It might be used to get a glimpse of how the IEEE 754 model works.
-This means that it could be used almost exclusively for educational
+This means it's useful almost exclusively for educational
 purposes.
 
 ## Brief example
 
 Create 3 floats using the float32 specification and print them
-as floats:
+as native floats:
 ```python
 from floatedu import Float32
 
@@ -25,7 +25,7 @@ print(f1, f_1234, f_inf)
 # 1.0 1234.4566650390625 inf
 ```
 
-Print number values as per general formula:
+Print number details as per general formula:
 ```python
 print(repr(f_1234))
 
@@ -41,19 +41,28 @@ print(repr(f_1234))
 
 The formula implemented for a normal number is:
 
-![General formula for floats](doc/img/eq_float_value.png "General formula for floats")
+[eq_float_value]: doc/img/eq_float_value.png
+[eq_float32_value]: doc/img/eq_float32_value.png
 
-The specification defines various types of binary floats.
+![General formula for floats](eq_float_value) ![Formula for float32](eq_float32_value)
+
+IEEE 754 defines various types of binary floats.
 This module implements all of them plus something non-standard.
 
 ![IEEE 754 bits layouts](doc/img/tb_pk_bits.png "IEEE 754 bits layouts")
 
-They're available as classes with matching names:
+Hence, the float32 formula is:
+
+![float32 formula](doc/img/eq_float32_value.png "float32 formula")
+
+
+
+Every implemented type is available as a class with matching names:
 ```python
 from floatedu import *
-[Float, Float16, BFloat16, Float64, Float32, Float128, Float256]
+[Float, Float8, Float16, BFloat16, Float64, Float32, Float128, Float256]
 ```
 
-The implementation class is `Float` and could not be instantiated
-directly. To use it it must be subclassed providing `p`, `k`, and `bias`
+The actual implementation class is `Float` and it couldn't be instantiated
+directly. It must be subclassed providing `p`, `k`, and `bias`
 values as class properties (see `Float.py`).
