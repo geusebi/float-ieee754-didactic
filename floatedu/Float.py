@@ -218,26 +218,3 @@ def new_float_class(name, n_exponent, n_significand, exponent_bias):
         k, p, bias, = n_exponent, n_significand, exponent_bias
         __qualname__ = __name__ = name
     return CustomFloat
-
-
-if __name__ == "__main__":
-    #  todo: create tests and remove __main__
-    verbose = True
-
-    examples = (
-        (Float32, "0 00000000 00000000000000000000001", 1.4E-45      ),
-        (Float32, "0 10001001 00110100100111010011101", 1234.4567    ),
-        (Float32, "0 01111111 00000000000000000000000", 1.0          ),
-        (Float32, "0 00000000 00000000000000000000000", float("+0")  ),
-        (Float32, "1 00000000 00000000000000000000000", float("-0")  ),
-        (Float32, "0 11111111 00000000000000000000000", float("+inf")),
-        (Float32, "1 11111111 00000000000000000000000", float("-inf")),
-        (Float32, "0 11111111 10000000000000000000000", float("nan") ),
-    )
-
-    for cls, binary, original in examples:
-        output = cls(binary)
-        print(f"value = {output} #  (original {original})")
-        if verbose:
-            print(repr(output))
-        print()
