@@ -1,26 +1,18 @@
 %\def\texfile{float input file}
 
-\ifdefined\width\else
-    \def\width{8cm}
-\fi
-
-\ifdefined\height\else
-    \def\height{8cm}
-\fi
-
-\ifdefined\margin\else
-    \def\margin{0cm}
+\ifdefined\layout\else
+    \def\layout{
+        paperwidth=8cm,%
+        paperheight=8cm,%
+        margin=0cm%
+    }
 \fi
 
 \documentclass[12pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage[%
-    paperwidth=\width,%
-    paperheight=\height,%
-    margin=\margin%
-]{geometry}
+\usepackage[\layout]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{bytefield}
@@ -34,5 +26,7 @@
 
 \begin{document}
 \centering
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
 \input{\texfile}
 \end{document}

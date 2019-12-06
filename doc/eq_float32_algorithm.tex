@@ -1,0 +1,11 @@
+\begin{equation*}
+value =
+\begin{cases}
+    \pm zero,  & \text{if $exp = 0$        and $fraction = 0$} \\
+    subnormal, & \text{if $exp = 0$        and $fraction \neq 0$} \\
+    \pm inf,   & \text{if $exp = 1_{mask}$ and $fraction = 0$} \\
+    nan,       & \text{if $exp = 1_{mask}$ and $fraction \neq 0$} \\
+    normal.    & \text{otherwise}
+\end{cases}
+\label{eq:float32_algorithm}
+\end{equation*}
