@@ -70,7 +70,7 @@ This module implements all of them plus something non-standard.
 
 ![IEEE 754 bits layouts](doc/img/tb_pk_bits.png "IEEE 754 bits layouts")
 
-Where bits are laid out from left to right `sign - exponent - fraction`.
+Bits are laid out from left to right as `sign - exponent - fraction`.
 
 For example the `BFloat16` is stored as:
 
@@ -98,8 +98,16 @@ Hence, the float32 formula becomes:
 [eq_float32_value]: doc/img/eq_float32_value.png "float32 formula"
 ![Formula for float32][eq_float32_value]
 
+An another way to think about this formula is to consider the stored
+number as a fixed point binary number with sign bit.
+
+In this case, the integer part would be the exponent and the fractional
+part (plus 1) would be the significand. I.e.
+
+![Float as fixed point binary](doc/img/eq_float_as_fp.png "Float as fixed point binary")
+
 The actual implementation class is `Float` and it couldn't be instantiated
 directly.
 
-It must be subclassed providing `p`, `k`, and `bias`
-values as class properties (see `floatedu/Float.py`).
+It must be subclassed providing `p`, `k`, and `bias` values as class
+properties (see `floatedu/Float.py`).

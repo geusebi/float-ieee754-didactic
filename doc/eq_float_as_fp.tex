@@ -2,9 +2,9 @@
 \begin{aligned}
     sign &= bit_{31} \\
     S &= (-1)^{sign} \\
-    number &= \sum_{n=1}^{p+k}{bit_{n-1} \cdot 2^{n-p}} \\
+    number &= \sum_{n=0}^{30}{bit_n \cdot 2^{n-23}} \\
     E &= \floor{number} \\
     F &= number \bmod 1 \\
-    value &= S \cdot 2^{E-bias} \cdot (1 + F) \\
+    value &= S \cdot 2^{E-127} \cdot (1 + F) \\
 \end{aligned}
 \end{equation*}
