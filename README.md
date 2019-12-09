@@ -63,40 +63,49 @@ print(f_num)
 # -1234.4566650390625
 ```
 
-## Implemented types and formula
+## Formats and equations
 
 IEEE 754 defines various types of binary floats.
-This module implements all of them plus something non-standard.
+This module implements standard and, in addition, a couple of non-standard
+types.
 
 ![IEEE 754 bits layouts](doc/img/tb_pk_bits.png "IEEE 754 bits layouts")
 
-Bits are laid out from left to right as `sign - exponent - fraction`.
+Bits are laid out from left to right following the scheme
+`sign - exponent - fraction`.
 
 For example the `BFloat16` is stored as:
 
 ![BFloat16 bits layout](doc/img/tb_bfloat16_bits.png "BFloat16 bits layout")
 
-Every implemented float type is available as a class:
-```python
-from floatedu import *
-[Float, Float8, Float16, BFloat16, Float64, Float32, Float128, Float256]
-```
+### Kind
 
-A number could be Zero, Infinity, Normal, Subnormal or Not a number.
+A number could be Zero, Infinity, Not a number, Normal or Subnormal.
+The first three cases are already values. Normal and Subnormal numbers
+are computed according to an equation.
 
-The type is determined by:
+To determine how to compute the value is sufficient to test `exp` and `fraction`
+against zero (all zeroes) and -1 (all ones, two's complement):
 
 ![Float type algorithm](doc/img/eq_float_type.png "Float type algorithm")
 
-The formula implemented for a normal number is:
+### Zero and infinity
+
+For Zero and Infinity the value is trivial. If the leftmost bit is 0 then the 
+value is positive (+0 or +inf). Otherwise it is negative (-0 or -inf).
+
+### Not a number
+
+In case of Not a number no extra steps is required if not returning an
+appropriate "non-value".
+
+### Normal
+Normal numbers values can be computed by the equation (general formula and 
+`float32` formula):
 
 [eq_float_value]: doc/img/eq_float_value.png "General formula"
-![General formula for floats][eq_float_value]
-
-Hence, the float32 formula becomes:
-
 [eq_float32_value]: doc/img/eq_float32_value.png "float32 formula"
-![Formula for float32][eq_float32_value]
+![General formula for floats][eq_float_value] ![Formula for float32][eq_float32_value]
 
 An another way to think about this formula is to consider the stored
 number as a fixed point binary number with sign bit.
@@ -105,6 +114,14 @@ In this case, the integer part would be the exponent and the fractional
 part (plus 1) would be the significand. I.e.
 
 ![Float as fixed point binary](doc/img/eq_float_as_fp.png "Float as fixed point binary")
+
+## Implementation
+
+Every implemented float type is available as a class:
+```python
+from floatedu import *
+[Float, Float8, Float16, BFloat16, Float64, Float32, Float128, Float256]
+```
 
 The actual implementation class is `Float` and it couldn't be instantiated
 directly.
