@@ -51,10 +51,10 @@ print(f_num.kind, f_num.sign, f_num.exponent, f_num.fraction)
 
 `Float` is a subclass of `list` and can be updated live:
 ```python
-print(f_num.sign_bits)
+print(f_num.sign_bit)
 print(f_num.exponent_bits)
 print(f_num.fraction_bits)
-f_num.sign_bits[0] = 1 #  Make number negative
+f_num.sign_bit[0] = 1 #  Make number negative
 print(f_num)
 
 # [0]
