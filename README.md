@@ -49,7 +49,7 @@ print(f_num.kind, f_num.sign, f_num.exponent, f_num.fraction)
 # normal 1 137 0.20552408695220947
 ```
 
-`Float` numbers are subclass of `list` and can be updated live:
+`Float` is a subclass of `list` and can be updated live:
 ```python
 print(f_num.sign_bits)
 print(f_num.exponent_bits)
@@ -72,7 +72,8 @@ types.
 ![IEEE 754 bits layouts](doc/img/tb_pk_bits.png "IEEE 754 bits layouts")
 
 Bits are laid out from left to right following the scheme
-`sign - exponent - fraction`.
+`sign . exponent . fraction`. `p` value includes the implicit bit (not 
+actually stored). 
 
 For example the `BFloat16` is stored as:
 
