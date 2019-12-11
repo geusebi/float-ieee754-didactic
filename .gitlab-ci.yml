@@ -18,5 +18,6 @@ deploy-pypi:
   script:
     - pip install wheel
     - pip install twine
+    - python README.md.py README.md
     - python setup.py sdist bdist_wheel
     - twine upload dist/*
