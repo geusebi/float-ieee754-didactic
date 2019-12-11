@@ -1,7 +1,7 @@
 import setuptools
 
 short_desc = (
-    "Educational python module to parse floats and inspect the"
+    "Educational python module to parse floats and inspect the "
     "IEEE754 algorithm's internals."
 )
 long_desc = open("README.md").read()
