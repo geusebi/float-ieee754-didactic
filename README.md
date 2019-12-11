@@ -5,8 +5,9 @@ IEEE 754 representation internals.
 
 ## Installation
 
-No installation as of today.
-Git clone the repository and run a python3 interpreter inside it. 
+```bash
+pip install floatedu
+```
 
 ## Use case
 
